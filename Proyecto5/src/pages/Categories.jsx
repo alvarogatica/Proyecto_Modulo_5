@@ -10,6 +10,7 @@ import {
   import React, { useEffect, useState } from "react";
   import { Link } from "react-router-dom";
   import useFetch from "../hooks/useFetch";
+import { ErrorBoundary } from "../components/ErrorBoundary";
   
   const Categories = () => {
   
@@ -34,7 +35,8 @@ import {
       <Grid container spacing={2} sx={{ padding: "20px" }}>
         {data?.categories.map((recipeCat) => (
           <Grid xs={12} sm={6} md={4} key={recipeCat.idCategory}>
-            <Card>
+            <ErrorBoundary>
+              <Card>
               <CardActionArea
                 component={Link}
                 to={`/categorias/${recipeCat.strCategory}`}
@@ -52,6 +54,7 @@ import {
                 </CardContent>
               </CardActionArea>
             </Card>
+            </ErrorBoundary>
           </Grid>
         ))}
       </Grid>
