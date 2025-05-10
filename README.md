@@ -19,4 +19,10 @@ Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumi
 * Diseño responsivo y moderno con Material UI
 * Deploy con Vercel
 
+## Instalacion del proyecto de manera local
+* Clona este link de github: ``git clone https://github.com/alvarogatica/Proyecto_Modulo_5.git``
+* Localizate en la carpeta principal del proyecto: ``cd \Proyecto_Modulo_5\Proyecto5``
+* Instala las dependencias del proyecto: ``npm install``
+* Corre el proyecto: ``npm run dev``
+
 ## Link de acceso a la App : https://projectmod5.vercel.app/
