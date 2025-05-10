@@ -9,6 +9,7 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import CategoriesDetail from "./pages/CategoriesDetail";
 import RandomDog from "./pages/RandomDog";
 import UserFinder from "./pages/UserFinder";
+import Pokedex from "./pages/Pokedex";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
       {
         path: "/gituser",
         element: <UserFinder />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/pokedex",
+        element: <Pokedex />,
         errorElement: <ErrorBoundary />,
       },
       {

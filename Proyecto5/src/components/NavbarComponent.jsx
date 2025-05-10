@@ -20,6 +20,7 @@ const pages = [
   { name: "Categorías", path: "/categorias" },
   { name: "Perro Aleatorio", path: "/randomdog" },
   { name: "GitHub User", path: "/gituser" },
+  { name: "Pokedex", path: "/pokedex" },
   { name: "Sobre Nosotros", path: "/about" },
 ];
 

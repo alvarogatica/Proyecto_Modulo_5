@@ -22,7 +22,7 @@ const UserFinder = () => {
   }, []);
 
   const fetchUsers = async () => {
-    const username = inputRef.current.value.trim();
+    const username = inputRef.current.value.trim().toLowerCase();
     if (!username) return;
 
     try {
