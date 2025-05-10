@@ -26,3 +26,48 @@ Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumi
 * Corre el proyecto: ``npm run dev``
 
 ## Link de acceso a la App : https://projectmod5.vercel.app/
+
+## Arquitectura de carpetas: 
+
+````js
+-Proyecto5
+---node_modules
+---public
+------_redirects
+------vite.svg
+---src
+------assets
+---------react.svg
+------components
+---------AleatorioDog.jsx
+---------ErrorBoundary.jsx
+---------Layout.jsx
+---------NavbarComponent.jsx
+---------randomMeal-jsx
+---------UserGitHub.jsx
+------hooks
+---------useFetch.jsx
+------pages
+---------About.jsx
+---------Categories.jsx
+---------CategoriesDetail.jsx
+---------RandomDog.jsx
+---------RecipeDetail.jsx
+---------RecipeList.jsx
+---------UserFinder.jsx
+------App.css
+------App.jsx
+------index.css
+------main.jsx
+------Router.jsx
+---.env
+---.gitignore
+---eslint.config.js
+---index.html
+---package-lock.json
+---package.json
+---README.md
+---vite.config.js
+````
+
+## Manejo de errores con componente ErrorBoundary: 
