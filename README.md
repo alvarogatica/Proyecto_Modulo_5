@@ -46,7 +46,7 @@ Separamos la carpeta ``components``, que guarda funciones que creemos poder util
 ---------Layout.jsx
 ---------NavbarComponent.jsx
 ---------PokeFinder.jsx
----------randomMeal-jsx
+---------RandomMeal-jsx
 ---------UserGitHub.jsx
 ------hooks
 ---------useFetch.jsx
