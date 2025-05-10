@@ -1,5 +1,7 @@
 # Proyecto_Modulo_5
 
+Link de acceso a la App : https://projectmod5.vercel.app/
+
 Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumir APIs para manejar su informacion y mostrarla al usuario.
 
 ## Tecnologias utilizadas: 
@@ -24,8 +26,6 @@ Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumi
 * Localizate en la carpeta principal del proyecto: ``cd \Proyecto_Modulo_5\Proyecto5``
 * Instala las dependencias del proyecto: ``npm install``
 * Corre el proyecto: ``npm run dev``
-
-## Link de acceso a la App : https://projectmod5.vercel.app/
 
 ## Arquitectura de carpetas: 
 Separamos la carpeta ``components``, que guarda funciones que creemos poder utilizar en algun otro momento en el proyecto. Almacenamos las distintas rutas a las cuales nos dirigira la App, en la carpeta ``pages``
