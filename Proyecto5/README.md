@@ -1,6 +1,6 @@
 # Proyecto_Modulo_5
 
-Link de acceso a la App : https://projectmod5.vercel.app/
+Link de acceso a la App : https://proyectomodulo5-one.vercel.app/
 
 Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumir APIs para manejar su informacion y mostrarla al usuario.
 
@@ -16,7 +16,7 @@ Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumi
 ## Funcionalidades del Proyecto:
 
 * Consumir APIs publicas
-* generar un listado de recetas, categorias de recetas, mostrar informacion detallada de alguna receta, buscar un usuario de github por nombre, cargar imagen random de perro.
+* generar un listado de recetas, categorias de recetas, mostrar informacion detallada de alguna receta, buscar un usuario de github por nombre, cargar imagen random de perro y buscar informacion sobre un pokemon en especifico.
 * Barra de navegacion 100% funcional
 * Manejo de errores con componente ErrorBoundary
 * Diseño responsivo y moderno con Material UI
@@ -45,6 +45,7 @@ Separamos la carpeta ``components``, que guarda funciones que creemos poder util
 ---------ErrorBoundary.jsx
 ---------Layout.jsx
 ---------NavbarComponent.jsx
+---------PokeFinder.jsx
 ---------randomMeal-jsx
 ---------UserGitHub.jsx
 ------hooks
@@ -53,6 +54,7 @@ Separamos la carpeta ``components``, que guarda funciones que creemos poder util
 ---------About.jsx
 ---------Categories.jsx
 ---------CategoriesDetail.jsx
+---------Pokedex.jsx
 ---------RandomDog.jsx
 ---------RecipeDetail.jsx
 ---------RecipeList.jsx
@@ -112,34 +114,32 @@ Este componente ErrorBoundary es un "límite de error" en React, usado para atra
 
 * ``render``: Si hay error, muestra un mensaje; si no, muestra los hijos normalmente ``(this.props.children)``.
 
-Para Testear este componente de error, puedes abrir el archivo ``App.jsx`` y en la seccion comentada con  "``//``", "``{/* */}``" puedes quitar las barras y hacer correr la funcion ``BrokenComponent()``. Asi se ve por el momento el archivo ``App.jsx``:
+Para Testear este manejo de errores creamos una pagina llamada "Test_Error_Boundary" en nuestra app, la cual comprueba el funcionamiento de este componente. Asi es como se ve el archivo TestError.jsx: 
 
 ````js
-import "./App.css";
-import { ErrorBoundary } from "./components/ErrorBoundary";
-import RandomMeal from "./components/RandomMeal";
+import React from "react";
+import { ErrorBoundary } from "../components/ErrorBoundary";
 
-// FUNCION PARA PROBAR EL ERROR BOUNDARY
-// function BrokenComponent() {
-//   throw new Error("This is a broken component");
-// }
-
-function App() {
-  return (
-    <ErrorBoundary>
-    <div className="App">
-      <RandomMeal />
-      {/* <BrokenComponent /> */}
-    </div>
-    </ErrorBoundary>
-  );
+function BrokenComponent() {
+  throw new Error("Error en el componente roto");
 }
 
-export default App;
+const TestError = () => {
+  return (
+    <ErrorBoundary>
+      <div>
+        <h1>Prueba de Error Boundary</h1>
+        <p>Este es un componente de prueba para verificar el Error Boundary.</p>
+        <BrokenComponent />
+      </div>
+    </ErrorBoundary>
+  );
+};
 
+export default TestError;
 ````
 
-Recuerda volver a dejar la seccion de la funcion ``BrokenComponent()`` de manera comentada (``//``, ``{/* */}``)
+La funcion ``BrokenComponent()`` fuerza un error en la pagina que es manejado por el componente que llamamos ``ErrorBoundary``, lo cual nos permite seguir en el sitio web, sin que este se caiga.
 
 ## Componente UserGitHub para explicar como funciona
 
@@ -168,7 +168,7 @@ const UserFinder = () => {
   }, []);
 
   const fetchUsers = async () => {
-    const username = inputRef.current.value.trim();
+    const username = inputRef.current.value.trim().toLowerCase();
     if (!username) return;
 
     try {
@@ -209,7 +209,12 @@ const UserFinder = () => {
           placeholder="Ingrese el nombre del usuario"
           sx={{ marginBottom: 2 }}
         />
-        <Button variant="contained" color="primary" fullWidth onClick={fetchUsers}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={fetchUsers}
+        >
           Buscar
         </Button>
 
@@ -225,7 +230,12 @@ const UserFinder = () => {
             <Avatar
               src={user.avatar_url}
               alt={user.name}
-              sx={{ width: 100, height: 100, margin: "0 auto", marginBottom: 1 }}
+              sx={{
+                width: 100,
+                height: 100,
+                margin: "0 auto",
+                marginBottom: 1,
+              }}
             />
             <Typography variant="subtitle1" fontWeight="bold">
               {user.name || user.login}
@@ -252,3 +262,10 @@ export default UserFinder;
 
 ``fetchUsers``: Al hacer clic en "Buscar", se consulta la API de GitHub con el nombre ingresado y se muestran los datos del usuario (avatar, nombre, seguidores, repositorios).
 
+``inputRef.current``: Accede a la referencia (``ref``) de un elemento del DOM en React.
+
+``.value``: Toma el valor actual del campo de entrada de texto.
+
+``.trim()``: Elimina los espacios en blanco al principio y al final del valor.
+
+``.toLowerCase()``: Convierte todo el texto a minúsculas.
