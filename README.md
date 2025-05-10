@@ -7,6 +7,7 @@ Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumi
 ## Tecnologias utilizadas: 
 
 * React
+* useState, useEffect, useRef, Fetch
 * Vite (como generador del proyecto)
 * Material UI (para diseños de interfaz)
 * React Router DOM
