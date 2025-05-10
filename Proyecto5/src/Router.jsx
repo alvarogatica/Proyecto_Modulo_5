@@ -8,6 +8,7 @@ import Categories from "./pages/Categories";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import CategoriesDetail from "./pages/CategoriesDetail";
 import RandomDog from "./pages/RandomDog";
+import UserFinder from "./pages/UserFinder";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: "/randomdog",
         element: <RandomDog />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/gituser",
+        element: <UserFinder />,
         errorElement: <ErrorBoundary />,
       },
       {
