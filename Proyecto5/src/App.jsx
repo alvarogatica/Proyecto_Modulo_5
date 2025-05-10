@@ -2,6 +2,7 @@ import "./App.css";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import RandomMeal from "./components/RandomMeal";
 
+// FUNCION PARA PROBAR EL ERROR BOUNDARY
 // function BrokenComponent() {
 //   throw new Error("This is a broken component");
 // }
