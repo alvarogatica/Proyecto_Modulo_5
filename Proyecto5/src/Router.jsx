@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 import About from "./pages/About";
 import Categories from "./pages/Categories";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-import CategoriasDetail from "./pages/CategoriasDetail";
+import CategoriesDetail from "./pages/CategoriesDetail";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/categorias/:nombre",
-        element: <CategoriasDetail />,
+        element: <CategoriesDetail />,
         errorElement: <ErrorBoundary />,
       },
       {
