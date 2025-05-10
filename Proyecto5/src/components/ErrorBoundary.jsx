@@ -17,7 +17,7 @@ export class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h2>Algo salio mal!</h2>;
+      return <h2>Algo salio mal!(No te preocupes, es solo un TEST)</h2>;
     }
 
     return this.props.children;

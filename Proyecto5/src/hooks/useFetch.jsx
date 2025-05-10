@@ -21,7 +21,6 @@ const useFetch = (url, update) => {
       }
     };
     fetchData();
-    console.log("se ejecuta el useEffect");
   }, [update]);
   return { data, loading, error };
 };
