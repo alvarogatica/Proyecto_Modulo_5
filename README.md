@@ -103,12 +103,13 @@ export class ErrorBoundary extends Component {
 ````
 Este componente ErrorBoundary es un "límite de error" en React, usado para atrapar errores de otros componentes sin romper toda la aplicación.
 
-¿Cómo funciona?
-``getDerivedStateFromError``: Se activa si un hijo lanza un error, y actualiza el estado.
+¿Cómo funciona?:
 
-``componentDidCatch``: Registra el error en consola.
+* ``getDerivedStateFromError``: Se activa si un hijo lanza un error, y actualiza el estado.
 
-``render``: Si hay error, muestra un mensaje; si no, muestra los hijos normalmente ``(this.props.children)``.
+* ``componentDidCatch``: Registra el error en consola.
+
+* ``render``: Si hay error, muestra un mensaje; si no, muestra los hijos normalmente ``(this.props.children)``.
 
 ## Componente de barra de navegacion: 
 
