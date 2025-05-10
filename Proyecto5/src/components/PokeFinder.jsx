@@ -66,7 +66,12 @@ const PokeFinder = () => {
           placeholder="Ingrese el nombre del Pokémon"
           sx={{ marginBottom: 2 }}
         />
-        <Button variant="contained" color="primary" fullWidth onClick={fetchPokemon}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={fetchPokemon}
+        >
           Buscar
         </Button>
 
@@ -82,17 +87,29 @@ const PokeFinder = () => {
             <Avatar
               src={pokemon.sprites.front_default}
               alt={pokemon.name}
-              sx={{ width: 100, height: 100, margin: "0 auto", marginBottom: 1 }}
+              sx={{
+                width: 100,
+                height: 100,
+                margin: "0 auto",
+                marginBottom: 1,
+              }}
             />
             <Typography variant="h6" sx={{ textTransform: "capitalize" }}>
               {pokemon.name}
             </Typography>
 
-            
             <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
               Tipos:
             </Typography>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 1, flexWrap: "wrap", mt: 1 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                gap: 1,
+                flexWrap: "wrap",
+                mt: 1,
+              }}
+            >
               {pokemon.types.map((t) => (
                 <Chip
                   key={t.type.name}
@@ -103,11 +120,18 @@ const PokeFinder = () => {
               ))}
             </Box>
 
-            
             <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
               Habilidades:
             </Typography>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 1, flexWrap: "wrap", mt: 1 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                gap: 1,
+                flexWrap: "wrap",
+                mt: 1,
+              }}
+            >
               {pokemon.abilities.map((a) => (
                 <Chip
                   key={a.ability.name}
@@ -117,8 +141,11 @@ const PokeFinder = () => {
               ))}
             </Box>
 
-            
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 2, mb: 1 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ mt: 2, mb: 1 }}
+            >
               Estadísticas base:
             </Typography>
             <Stack spacing={1}>
@@ -126,7 +153,11 @@ const PokeFinder = () => {
                 <Box key={stat.stat.name}>
                   <Typography
                     variant="caption"
-                    sx={{ textTransform: "capitalize", display: "flex", justifyContent: "space-between" }}
+                    sx={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
                   >
                     {stat.stat.name}: <strong>{stat.base_stat}</strong>
                   </Typography>

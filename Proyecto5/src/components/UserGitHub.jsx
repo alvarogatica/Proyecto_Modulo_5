@@ -63,7 +63,12 @@ const UserFinder = () => {
           placeholder="Ingrese el nombre del usuario"
           sx={{ marginBottom: 2 }}
         />
-        <Button variant="contained" color="primary" fullWidth onClick={fetchUsers}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={fetchUsers}
+        >
           Buscar
         </Button>
 
@@ -79,7 +84,12 @@ const UserFinder = () => {
             <Avatar
               src={user.avatar_url}
               alt={user.name}
-              sx={{ width: 100, height: 100, margin: "0 auto", marginBottom: 1 }}
+              sx={{
+                width: 100,
+                height: 100,
+                margin: "0 auto",
+                marginBottom: 1,
+              }}
             />
             <Typography variant="subtitle1" fontWeight="bold">
               {user.name || user.login}

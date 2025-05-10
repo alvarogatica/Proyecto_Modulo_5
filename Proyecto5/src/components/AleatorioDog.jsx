@@ -12,7 +12,10 @@ import {
 
 const AleatorioDog = () => {
   const [update, setUpdate] = useState(false);
-  const { data, loading } = useFetch(import.meta.env.VITE_RANDOM_DOG_API_URL, update);
+  const { data, loading } = useFetch(
+    import.meta.env.VITE_RANDOM_DOG_API_URL,
+    update
+  );
 
   const dogImage = data?.message;
 

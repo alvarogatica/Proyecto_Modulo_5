@@ -10,10 +10,10 @@ import RandomMeal from "./components/RandomMeal";
 function App() {
   return (
     <ErrorBoundary>
-    <div className="App">
-      <RandomMeal />
-      {/* <BrokenComponent /> */}
-    </div>
+      <div className="App">
+        <RandomMeal />
+        {/* <BrokenComponent /> */}
+      </div>
     </ErrorBoundary>
   );
 }

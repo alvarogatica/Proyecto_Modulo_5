@@ -13,7 +13,10 @@ import {
 
 const RandomMeal = () => {
   const [update, setUpdate] = useState(false);
-  const { data, loading } = useFetch(import.meta.env.VITE_RANDOM_API_URL, update);
+  const { data, loading } = useFetch(
+    import.meta.env.VITE_RANDOM_API_URL,
+    update
+  );
 
   const meal = data?.meals?.[0];
 

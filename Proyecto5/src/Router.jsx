@@ -10,6 +10,7 @@ import CategoriesDetail from "./pages/CategoriesDetail";
 import RandomDog from "./pages/RandomDog";
 import UserFinder from "./pages/UserFinder";
 import Pokedex from "./pages/Pokedex";
+import TestError from "./pages/TestError";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/testerror",
+        element: <TestError />,
         errorElement: <ErrorBoundary />,
       },
     ],

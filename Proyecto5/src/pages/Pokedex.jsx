@@ -1,12 +1,12 @@
-import React from 'react'
-import PokeFinder from '../components/PokeFinder'
+import React from "react";
+import PokeFinder from "../components/PokeFinder";
 
 const Pokedex = () => {
   return (
     <>
-        <PokeFinder />
+      <PokeFinder />
     </>
-  )
-}
+  );
+};
 
-export default Pokedex
+export default Pokedex;
