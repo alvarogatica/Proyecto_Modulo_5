@@ -7,6 +7,7 @@ Esta es una Aplicacion web desarrollada con React, la cual se encarga de consumi
 ## Tecnologias utilizadas: 
 
 * React
+* useState, useEffect, useRef, Fetch
 * Vite (como generador del proyecto)
 * Material UI (para diseños de interfaz)
 * React Router DOM
@@ -110,6 +111,35 @@ Este componente ErrorBoundary es un "límite de error" en React, usado para atra
 * ``componentDidCatch``: Registra el error en consola.
 
 * ``render``: Si hay error, muestra un mensaje; si no, muestra los hijos normalmente ``(this.props.children)``.
+
+Para Testear este componente de error, puedes abrir el archivo ``App.jsx`` y en la seccion comentada con  "``//``", "``{/* */}``" puedes quitar las barras y hacer correr la funcion ``BrokenComponent()``. Asi se ve por el momento el archivo ``App.jsx``:
+
+````js
+import "./App.css";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import RandomMeal from "./components/RandomMeal";
+
+// FUNCION PARA PROBAR EL ERROR BOUNDARY
+// function BrokenComponent() {
+//   throw new Error("This is a broken component");
+// }
+
+function App() {
+  return (
+    <ErrorBoundary>
+    <div className="App">
+      <RandomMeal />
+      {/* <BrokenComponent /> */}
+    </div>
+    </ErrorBoundary>
+  );
+}
+
+export default App;
+
+````
+
+Recuerda volver a dejar la seccion de la funcion ``BrokenComponent()`` de manera comentada (``//``, ``{/* */}``)
 
 ## Componente UserGitHub para explicar como funciona
 
@@ -221,3 +251,4 @@ export default UserFinder;
 ``useState``: Para manejar el estado del usuario encontrado y posibles errores.
 
 ``fetchUsers``: Al hacer clic en "Buscar", se consulta la API de GitHub con el nombre ingresado y se muestran los datos del usuario (avatar, nombre, seguidores, repositorios).
+
