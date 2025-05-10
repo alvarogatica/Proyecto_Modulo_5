@@ -1,103 +1,74 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import { Link } from "react-router-dom";
 
 const pages = [
-  {
-    name: "HOME",
-    path: "/",
-  },
-  {
-    name: "RECETAS",
-    path: "/recetas",
-  },
-  {
-    name: "CATEGORIAS",
-    path: "/categorias",
-  },
-  {
-    name: "SOBRE NOSOTROS",
-    path: "/about",
-  },
+  { name: "Home", path: "/" },
+  { name: "Recetas", path: "/recetas" },
+  { name: "Categorías", path: "/categorias" },
+  { name: "Sobre Nosotros", path: "/about" },
 ];
 
 function NavbarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static" sx={{backgroundColor:"#013220" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#2E7D32" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <RestaurantMenuIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
-            noWrap
             component={Link}
             to="/"
             sx={{
-              mr: 2,
+              mr: 4,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Raleway, sans-serif",
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
+              letterSpacing: ".1rem",
+              color: "white",
               textDecoration: "none",
             }}
           >
-            PROYECTO_5
+            SABORES
           </Typography>
 
+          {/* Menu responsive para pantallas pequeñas */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
+              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+              transformOrigin={{ vertical: "top", horizontal: "left" }}
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
@@ -107,40 +78,49 @@ function NavbarComponent() {
                   component={Link}
                   to={page.path}
                 >
-                  <Typography sx={{ textAlign: "center" }}>
-                    {page.name}
-                  </Typography>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+
+          {/* Logo para móvil */}
+          <RestaurantMenuIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
-            noWrap
             component={Link}
             to="/"
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
+              display: { xs: "flex", md: "none" },
+              fontFamily: "Raleway, sans-serif",
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
+              letterSpacing: ".1rem",
+              color: "white",
               textDecoration: "none",
             }}
           >
-            Proyecto_5
+            SABORES
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+
+          {/* Navegación en desktop */}
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "flex-end" }}>
             {pages.map((page) => (
               <Button
+                key={page.name}
                 component={Link}
                 to={page.path}
-                key={page.name}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontWeight: "bold",
+                  "&:hover": {
+                    backgroundColor: "#1B5E20",
+                    color: "#fffde7",
+                  },
+                }}
               >
                 {page.name}
               </Button>
@@ -151,4 +131,5 @@ function NavbarComponent() {
     </AppBar>
   );
 }
+
 export default NavbarComponent;

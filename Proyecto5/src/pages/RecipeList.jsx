@@ -6,13 +6,14 @@ import {
   CircularProgress,
   Grid,
   Typography,
+  Box,
+  Container,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 const RecipeList = () => {
-
   const { data, loading, error } = useFetch(
     import.meta.env.VITE_RECIPES_API_URL
   );
@@ -31,30 +32,64 @@ const RecipeList = () => {
   }
 
   return (
-    <Grid container spacing={2} sx={{ padding: "20px" }}>
-      {data?.meals.map((recipe) => (
-        <Grid xs={12} sm={6} md={4} key={recipe.idMeal}>
-          <Card>
-            <CardActionArea
-              component={Link}
-              to={`/recetas/${recipe.strMeal}`}
-              state={{ recipe }}
+    <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Typography
+        variant="h4"
+        gutterBottom
+        textAlign="center"
+        fontWeight={600}
+        color="primary"
+      >
+        Recetas Disponibles
+      </Typography>
+      <Grid container spacing={4}>
+        {data?.meals.map((recipe) => (
+          <Grid item xs={12} sm={6} md={4} key={recipe.idMeal}>
+            <Card
+              sx={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: 2,
+                boxShadow: 3,
+                transition: "transform 0.2s",
+                "&:hover": {
+                  transform: "scale(1.02)",
+                },
+              }}
             >
-              <CardMedia
-                component="img"
-                height="140"
-                image={recipe.strMealThumb}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h6">
-                  {recipe.strMeal}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
+              <CardActionArea
+                component={Link}
+                to={`/recetas/${recipe.strMeal}`}
+                state={{ recipe }}
+              >
+                <CardMedia
+                  component="img"
+                  height="180"
+                  image={recipe.strMealThumb}
+                  alt={recipe.strMeal}
+                  sx={{ objectFit: "cover" }}
+                />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h6"
+                    component="div"
+                    sx={{
+                      textAlign: "center",
+                      fontWeight: "bold",
+                      color: "#2e7d32",
+                    }}
+                  >
+                    {recipe.strMeal}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 };
 
