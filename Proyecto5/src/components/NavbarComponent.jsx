@@ -37,7 +37,9 @@ function NavbarComponent() {
     <AppBar position="static" sx={{ backgroundColor: "#2E7D32" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <RestaurantMenuIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <RestaurantMenuIcon
+            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+          />
           <Typography
             variant="h6"
             component={Link}
@@ -55,7 +57,6 @@ function NavbarComponent() {
             SABORES
           </Typography>
 
-          {/* Menu responsive para pantallas pequeñas */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -85,8 +86,9 @@ function NavbarComponent() {
             </Menu>
           </Box>
 
-          {/* Logo para móvil */}
-          <RestaurantMenuIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <RestaurantMenuIcon
+            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+          />
           <Typography
             variant="h5"
             component={Link}
@@ -104,8 +106,13 @@ function NavbarComponent() {
             SABORES
           </Typography>
 
-          {/* Navegación en desktop */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "flex-end" }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page.name}

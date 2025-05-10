@@ -1,6 +1,5 @@
-import React from 'react';
-import AleatorioDog from '../components/AleatorioDog';
-
+import React from "react";
+import AleatorioDog from "../components/AleatorioDog";
 
 const RandomDog = () => {
   return (

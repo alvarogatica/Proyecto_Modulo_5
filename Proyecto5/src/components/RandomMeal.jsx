@@ -24,7 +24,7 @@ const RandomMeal = () => {
         align="center"
         gutterBottom
         sx={{
-          fontFamily: "'Poppins', sans-serif", // Fuente mejorada para el título
+          fontFamily: "'Poppins', sans-serif",
           fontWeight: 700,
         }}
       >
@@ -44,7 +44,7 @@ const RandomMeal = () => {
               fontSize: "1rem",
               backgroundColor: "#2E7D32",
               "&:hover": {
-                backgroundColor: "#025b3c", // un tono más claro al pasar el mouse
+                backgroundColor: "#025b3c",
               },
             }}
           >
@@ -65,16 +65,16 @@ const RandomMeal = () => {
                 overflow: "hidden",
                 transition: "transform 0.3s ease",
                 "&:hover": {
-                  transform: "scale(1.05)", // Efecto de hover para la tarjeta
+                  transform: "scale(1.05)",
                 },
               }}
             >
               <CardMedia
                 component="img"
-                height="250" // Tamaño ajustado para la imagen
+                height="250"
                 image={meal.strMealThumb}
                 alt={meal.strMeal}
-                sx={{ objectFit: "cover" }} // Ajuste de la imagen para que no se distorsione
+                sx={{ objectFit: "cover" }}
               />
               <CardContent>
                 <Typography variant="h5" gutterBottom>

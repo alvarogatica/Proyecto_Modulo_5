@@ -3,7 +3,7 @@ import { Box, Typography, Card, CardMedia, CardContent } from "@mui/material";
 
 const CategoriesDetail = () => {
   const location = useLocation();
-  const { recipeCat } = location.state || {}; // Aquí recibes los datos
+  const { recipeCat } = location.state || {};
 
   if (!recipeCat) {
     return <Typography variant="h6">No se encontró la categoría.</Typography>;
@@ -32,4 +32,3 @@ const CategoriesDetail = () => {
 };
 
 export default CategoriesDetail;
-

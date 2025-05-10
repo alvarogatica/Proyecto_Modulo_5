@@ -14,7 +14,7 @@ const AleatorioDog = () => {
   const [update, setUpdate] = useState(false);
   const { data, loading } = useFetch(import.meta.env.VITE_RANDOM_DOG_API_URL, update);
 
-  const dogImage = data?.message; // La URL de la imagen del perro viene en 'message'
+  const dogImage = data?.message;
 
   return (
     <Box sx={{ mt: 6, px: 2 }}>
