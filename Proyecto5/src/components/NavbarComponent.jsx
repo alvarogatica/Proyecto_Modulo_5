@@ -18,6 +18,7 @@ const pages = [
   { name: "Home", path: "/" },
   { name: "Recetas", path: "/recetas" },
   { name: "Categorías", path: "/categorias" },
+  { name: "Perro Aleatorio", path: "/randomdog" },
   { name: "Sobre Nosotros", path: "/about" },
 ];
 

@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Categories from "./pages/Categories";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import CategoriesDetail from "./pages/CategoriesDetail";
+import RandomDog from "./pages/RandomDog";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       {
         path: "/categorias/:nombre",
         element: <CategoriesDetail />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/randomdog",
+        element: <RandomDog />,
         errorElement: <ErrorBoundary />,
       },
       {
